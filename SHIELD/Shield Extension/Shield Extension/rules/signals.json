@@ -1,0 +1,107 @@
+{
+  "version": "1.0",
+  "signals": [
+    {
+      "id": "urgency_language",
+      "category": "Urgency Manipulation",
+      "severity": "medium",
+      "label": "Urgency language detected",
+      "context": "Content using urgency cues (BREAKING, ACT NOW, SHARE BEFORE DELETED) may be designed to bypass critical thinking. Verify before sharing.",
+      "patterns": [
+        "BREAKING",
+        "ACT NOW",
+        "SHARE BEFORE (THIS IS|IT['’]?S) DELETED",
+        "SHARE IMMEDIATELY",
+        "YOU MUST SEE THIS",
+        "THEY DON['’]T WANT YOU TO KNOW",
+        "SHARE (THIS )?NOW",
+        "URGENT[: ]",
+        "LIMITED TIME",
+        "BEFORE IT['’]?S TOO LATE",
+        "EXCLUSIVE: "
+      ]
+    },
+    {
+      "id": "unverified_claim",
+      "category": "Unverified Claim",
+      "severity": "high",
+      "label": "Unverified claim pattern",
+      "context": "Phrases like 'scientists say' or '100% proven' without citations are common in misleading content. Look for named sources and linked studies.",
+      "patterns": [
+        "scientists (say|confirm|warn|reveal|discover)",
+        "experts (say|confirm|warn|reveal|agree)",
+        "studies (show|prove|confirm|reveal)",
+        "research (proves|shows|confirms)",
+        "100% (proven|confirmed|guaranteed|effective)",
+        "doctors (hate|don['’]?t want you to know)",
+        "the truth (about|they|behind)",
+        "what (they|the media|the government) (won['’]?t|don['’]?t|isn['’]?t|refuses to) (tell|show|admit)"
+      ]
+    },
+    {
+      "id": "emotional_manipulation",
+      "category": "Emotional Manipulation",
+      "severity": "medium",
+      "label": "Emotionally charged framing",
+      "context": "Highly emotional language can signal content designed to provoke reaction over reflection. Take a moment before sharing.",
+      "patterns": [
+        "outrage",
+        "disgusting",
+        "horrifying",
+        "you won['’]?t believe",
+        "shocking (truth|revelation|news|video)",
+        "will (shock|disgust|enrage|infuriate) you",
+        "make you (angry|furious|sick|cry)",
+        "mainstream media (won['’]?t|doesn['’]?t|refuses to|hides|ignores)",
+        "wake up",
+        "sheeple"
+      ]
+    },
+    {
+      "id": "source_obscuring",
+      "category": "Obscured Source",
+      "severity": "low",
+      "label": "Source not cited",
+      "context": "A specific named source or study link was not found near this claim. Credible information typically cites its origins.",
+      "patterns": [
+        "according to (sources|insiders|reports|witnesses)",
+        "anonymous (source|official|whistleblower)",
+        "sources close to",
+        "it has been reported that",
+        "reports suggest",
+        "many (people|experts|scientists|doctors) (believe|say|think|claim)"
+      ]
+    },
+    {
+      "id": "statistical_distortion",
+      "category": "Manipulated Data",
+      "severity": "high",
+      "label": "Potentially distorted statistic",
+      "context": "Numbers presented without methodology, sample size, or source are easy to manipulate. Check the original dataset before sharing.",
+      "patterns": [
+        "\\d+% of (people|americans|scientists|experts|voters)",
+        "9 out of 10",
+        "proven by \\d+ studies",
+        "over \\d+ (people|cases|deaths|victims) (say|confirm|reported)"
+      ]
+    },
+    {
+      "id": "conspiracy_framing",
+      "category": "Conspiracy Framing",
+      "severity": "high",
+      "label": "Conspiracy framing detected",
+      "context": "This content uses language patterns commonly associated with conspiracy narratives. Cross-reference with multiple independent sources.",
+      "patterns": [
+        "new world order",
+        "deep state",
+        "globalist",
+        "they are (hiding|suppressing|silencing|covering up)",
+        "controlled by",
+        "false flag",
+        "crisis actor",
+        "plandemic",
+        "great reset"
+      ]
+    }
+  ]
+}

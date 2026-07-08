@@ -1,0 +1,169 @@
+:root {
+  --shield-low-bg: #FFF8E1;
+  --shield-low-border: #F9A825;
+  --shield-low-badge: #F9A825;
+  --shield-medium-bg: #FFF3E0;
+  --shield-medium-border: #EF6C00;
+  --shield-medium-badge: #EF6C00;
+  --shield-high-bg: #FFEBEE;
+  --shield-high-border: #C62828;
+  --shield-high-badge: #C62828;
+  --shield-text: #1A1A1A;
+  --shield-panel-bg: #FFFFFF;
+  --shield-radius: 6px;
+  --shield-font: 'Segoe UI', system-ui, sans-serif;
+  --shield-z: 2147483640;
+}
+
+.shield-flagged-wrapper {
+  position: relative;
+  border-left: 3px solid var(--shield-low-border) !important;
+  background: var(--shield-low-bg) !important;
+  padding: 6px 6px 6px 10px !important;
+  margin: 4px 0 !important;
+  border-radius: 0 var(--shield-radius) var(--shield-radius) 0 !important;
+  transition: filter 0.3s ease, opacity 0.3s ease;
+}
+.shield-flagged-wrapper.shield-severity-medium {
+  border-left-color: var(--shield-medium-border) !important;
+  background: var(--shield-medium-bg) !important;
+}
+.shield-flagged-wrapper.shield-severity-high {
+  border-left-color: var(--shield-high-border) !important;
+  background: var(--shield-high-bg) !important;
+}
+
+.shield-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--shield-font);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--shield-low-badge);
+  margin-bottom: 4px;
+  cursor: pointer;
+  user-select: none;
+  line-height: 1.2;
+}
+.shield-severity-medium .shield-badge { color: var(--shield-medium-badge); }
+.shield-severity-high .shield-badge { color: var(--shield-high-badge); }
+.shield-expand-btn {
+  background: transparent;
+  border: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  padding: 0 4px;
+}
+
+.shield-panel {
+  display: none;
+  background: var(--shield-panel-bg);
+  border: 1px solid #E0E0E0;
+  border-radius: var(--shield-radius);
+  padding: 10px 12px;
+  margin: 6px 0;
+  font-family: var(--shield-font);
+  font-size: 12px;
+  color: var(--shield-text);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  position: relative;
+  z-index: var(--shield-z);
+}
+.shield-panel.shield-open { display: block; }
+.shield-signal-list {
+  list-style: none;
+  margin: 0 0 8px 0;
+  padding: 0;
+}
+.shield-signal-item {
+  padding: 6px 8px;
+  border-radius: 4px;
+  margin-bottom: 4px;
+  background: #FAFAFA;
+}
+.shield-signal-item.shield-high { border-left: 3px solid var(--shield-high-border); }
+.shield-signal-item.shield-medium { border-left: 3px solid var(--shield-medium-border); }
+.shield-signal-item.shield-low { border-left: 3px solid var(--shield-low-border); }
+.shield-panel-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+.shield-panel-footer a {
+  color: #1565C0;
+  text-decoration: none;
+  font-weight: 600;
+}
+.shield-dismiss-btn {
+  background: #EEEEEE;
+  border: none;
+  border-radius: 4px;
+  padding: 4px 10px;
+  font-family: var(--shield-font);
+  font-size: 12px;
+  cursor: pointer;
+  color: var(--shield-text);
+}
+.shield-dismiss-btn:hover { background: #E0E0E0; }
+
+.shield-severity-high.shield-demoted {
+  filter: blur(2px);
+  opacity: 0.55;
+}
+.shield-severity-high.shield-demoted .shield-badge,
+.shield-severity-high.shield-demoted .shield-panel,
+.shield-severity-high.shield-demoted .shield-reveal-label {
+  filter: none;
+  opacity: 1;
+}
+.shield-reveal-label {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--shield-font);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--shield-high-badge);
+  cursor: pointer;
+  z-index: var(--shield-z);
+  background: rgba(255, 235, 238, 0.6);
+  border-radius: var(--shield-radius);
+}
+
+.shield-toast {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #212121;
+  color: #FFFFFF;
+  font-family: var(--shield-font);
+  font-size: 13px;
+  padding: 10px 16px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  z-index: var(--shield-z);
+  animation: shieldSlideIn 0.3s ease;
+}
+.shield-toast button {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: #FFFFFF;
+  border-radius: 4px;
+  padding: 3px 10px;
+  cursor: pointer;
+  font-family: var(--shield-font);
+  font-size: 12px;
+}
+.shield-toast button:hover { background: rgba(255, 255, 255, 0.1); }
+@keyframes shieldSlideIn {
+  from { transform: translateY(30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}

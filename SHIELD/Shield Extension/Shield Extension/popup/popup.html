@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Shield</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="brand">
+      <span class="logo">🛡️</span>
+      <span class="wordmark">Shield</span>
+    </div>
+    <label class="switch">
+      <input type="checkbox" id="enabledToggle" />
+      <span class="slider"></span>
+    </label>
+  </header>
+
+  <section class="summary">
+    <h2 id="summaryTitle">Scanning…</h2>
+    <ul id="flagList" class="flag-list"></ul>
+    <button id="scrollFirst" class="primary-btn" hidden>Scroll to first flag</button>
+  </section>
+
+  <section class="settings">
+    <button id="settingsToggle" class="section-toggle">Settings ▾</button>
+    <div id="settingsPanel" class="settings-panel" hidden>
+      <label class="setting">
+        <span>Sensitivity</span>
+        <select id="sensitivity">
+          <option value="low">Low (high severity only)</option>
+          <option value="medium">Medium</option>
+          <option value="high">High (all signals)</option>
+        </select>
+      </label>
+      <label class="setting checkbox">
+        <input type="checkbox" id="whitelist" />
+        <span>Whitelist this site</span>
+      </label>
+      <label class="setting checkbox">
+        <input type="checkbox" id="showToast" />
+        <span>Show toast notifications</span>
+      </label>
+      <label class="setting checkbox">
+        <input type="checkbox" id="blurHigh" />
+        <span>Blur high-severity content</span>
+      </label>
+    </div>
+  </section>
+
+  <script src="popup.js"></script>
+</body>
+</html>
